@@ -1,6 +1,8 @@
 import pandas as pd 
 import quandl 
 import math
+import numpy as np 
+from sklearn import preprocessing, cross_validation,
 
 df = quandl.get('WIKI/GOOGL')
 #print(df.head())
