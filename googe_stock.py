@@ -1,5 +1,6 @@
 import pandas as pd 
 import quandl 
+import math
 
 df = quandl.get('WIKI/GOOGL')
 #print(df.head())
@@ -10,4 +11,8 @@ df = df[['Adj. Close','HL_PCT','PCT_change','Adj. Volume']]
 
 forecast_col = 'Adj. Close'
 df.fillna(-99999, inplace=True)
-#print(df.head())
+
+forecast_out = int(math.ceil(0.1*len(df)))
+df['label'] = df[forecast_col].shift(-forecast_out)
+df.dropna(inplace=True)
+print(df.tail())
