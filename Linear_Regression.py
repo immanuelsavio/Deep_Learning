@@ -10,4 +10,3 @@ def best_fit_slope_and_intercept(xs,ys):
     return m, b    
 
 m, b = best_fit_slope_and_intercept(xs,ys)
-print(m)
