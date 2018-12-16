@@ -3,4 +3,5 @@ from sklearn import preprocessing, cross_validation, neighbors
 import pandas as pd
 
 df = pd.read_csv('breast-cancer-wisconsin.data')
-df.replace('?', -99999, implace =True)
+df.replace('?', -99999, inplace =True)
+df.drop(['id'],1,inplace = True)
