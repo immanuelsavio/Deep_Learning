@@ -9,7 +9,18 @@ style.use('fivethirtyeight')
 dataset = {'k' : [[1,2],[2,3],[3,1]], 'r':[[6,5],[7,7],[8,6]] }
 new_feature = [5,7]
 
-for i in dataset:
-    for ii in dataset[i]:
-        [plt.scatter(ii[0],ii[1], s=100, color=i)]
-plt.show()
+#for i in dataset:
+#   for ii in dataset[i]:
+#      [plt.scatter(ii[0],ii[1], s=100, color=i)]
+#plt.scatter(new_feature[0],new_feature[1])
+#plt.show()
+
+def k_nearest_neighbours(data, predict, k=3):
+    if len(data) >=k:
+        warnings.warn('K is set a value less than voting')
+    distances = []
+    for group in data:
+        for features in data[group]: 
+            eucl_dist = sqrt( (features[0] - predict[0])**2 + (features[1] - predict[1])**2 )
+    else:    
+        return vote_result 
