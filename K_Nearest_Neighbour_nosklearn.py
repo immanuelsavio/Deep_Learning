@@ -21,6 +21,6 @@ def k_nearest_neighbours(data, predict, k=3):
     distances = []
     for group in data:
         for features in data[group]: 
-            eucl_dist = sqrt( (features[0] - predict[0])**2 + (features[1] - predict[1])**2 )
+            eucl_dist = np.linalg.norm(np.array(features) - np.array(predict))
     else:    
         return vote_result 
