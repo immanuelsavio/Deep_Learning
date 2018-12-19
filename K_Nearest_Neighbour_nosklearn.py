@@ -25,4 +25,4 @@ def k_nearest_neighbours(data, predict, k=3):
             distances.append([eucl_dist,group])
     votes = [i[1] for i in sorted(distances) [:k]]
     else:    
-        return vote_result 
+        return vote_result  
