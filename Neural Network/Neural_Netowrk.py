@@ -36,5 +36,18 @@ def neural_network_model(data):
     l3 = tf.nn.relu(l3)
 
     output = tf.matmul(l2, output_layer['weights']) + output_layer['biases']
+    return output
+
+
+def train_neural_network(x):
+    prediction =  neural_network_model(x)
+    cost = tf.reduce_mean( tf.nn.softmax_cross_entropy_with_logits(prediction, y))
+
+    optimizer = tf.train.AdamOptimizer().minimize(cost)
+
+    hm_epochs = 10
+
+    with tf.Session() as sess:
+        sess.run(tf.initialize_all_variables())
 
 
