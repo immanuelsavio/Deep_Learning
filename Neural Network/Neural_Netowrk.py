@@ -50,9 +50,11 @@ def train_neural_network(x):
     with tf.Session() as sess:
         sess.run(tf.initialize_all_variables())
 
-        for epoch in hm_epochs:
+        for epoch in range(hm_epochs):
             epoch_loss = 0
             for _ in range(int(mnist.train.num_examples/batch_size)):
                 x, y = mnist.train.next_batch(batch_size) 
-
-
+                _, c = sess.run([optimizer, cost], feed_dict = {x: x, y: y})
+                epoch_loss =epoch_loss + c
+            print('***Epoch*** ', epoch, '***completed***', hm_epochs,'***loss***', epoch_loss)
+        correct = tf.equal(tf.argmax(prediction, 1), tf.argmax(y, 1))
