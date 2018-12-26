@@ -1,5 +1,5 @@
 import numpy as np 
-from sklearn import preprocessing, cross_validation, neighbors
+from sklearn import preprocessing, neighbors, model_selection.train_test_split
 import pandas as pd
 
 df = pd.read_csv('breast-cancer-wisconsin.data.txt')
