@@ -17,6 +17,7 @@ new_feature = [5,7]
 
 def k_nearest_neighbours(data, predict, k=3):
     if len(data) >=k:
+
         warnings.warn('K is set a value less than voting')
         distances = []
         for group in data:
