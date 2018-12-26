@@ -8,7 +8,8 @@ class NeuralNetwork():
         self.synaptic_weights = 2 * random.random((3,1)) - 1
 
 
-
+    def __sigmoid(self , x):
+        return 1 / (1 + exp(-x))
 
 
 
