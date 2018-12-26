@@ -11,7 +11,9 @@ class NeuralNetwork():
     def __sigmoid(self , x):
         return 1 / (1 + exp(-x))
 
+    def predict(self, inputs):
 
+        return self.__sigmoid(dot(inputs, self.synaptic_weights))
 
 
 
