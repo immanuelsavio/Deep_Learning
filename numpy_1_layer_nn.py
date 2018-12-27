@@ -10,14 +10,19 @@ class NeuralNetwork():
 
     def __sigmoid(self , x):
         return 1 / (1 + exp(-x))
+    
+   
+    def __sigmoid_derivative(self,x):
+       return x * (1-x)
+
 
     def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
-        for iteration in xrange(number_of_training_iterations):
-                output = self.predict(training_set_inputs)
+            output = self.predict(training_set_inputs)
 
-                error = training_set_outputs - output
+            error = training_set_outputs - output
+            adjustment = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
 
-                adjust = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
+            self.synaptic_weights += adjustment
 
     def predict(self, inputs):
 
@@ -25,7 +30,7 @@ class NeuralNetwork():
 
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
 
     neural_network = NeuralNetwork()
 
@@ -40,4 +45,5 @@ if __name__ = '__main__':
     print(" New synaptic weights after training : ",)
     print(neural_network.synaptic_weights)
 
-    print('')
+    print('New input [1,0,0] --> ?:')
+    print(neural_network.predict(array([1,0,0])))
