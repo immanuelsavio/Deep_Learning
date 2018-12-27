@@ -11,6 +11,14 @@ class NeuralNetwork():
     def __sigmoid(self , x):
         return 1 / (1 + exp(-x))
 
+    def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
+        for iteration in xrange(number_of_training_iterations):
+                output = self.predict(training_set_inputs)
+
+                error = training_set_outputs - output
+
+                adjust = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
+
     def predict(self, inputs):
 
         return self.__sigmoid(dot(inputs, self.synaptic_weights))
