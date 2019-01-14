@@ -17,17 +17,15 @@ new_feature = [5,7]
 
 def k_nearest_neighbours(data, predict, k=3):
     if len(data) >=k:
-
         warnings.warn('K is set a value less than voting')
-        distances = []
-        for group in data:
-            for features in data[group]: 
-                eucl_dist = np.linalg.norm(np.array(features) - np.array(predict))
-                distances.append([eucl_dist,group])
-        votes = [i[1] for i in sorted(distances) [:k]]
-        vote_result = Counter(votes).most_common[1][0][0]
-    else:    
-        return vote_result  
+    distances = []
+    for group in data:
+        for features in data[group]: 
+            eucl_dist = np.linalg.norm(np.array(features) - np.array(predict))
+            distances.append([eucl_dist,group])
+    votes = [i[1] for i in sorted(distances) [:k]]
+    vote_result = Counter(votes).most_common[1][0][0]
+    return vote_result  
 
 result = k_nearest_neighbours(dataset, new_feature, k=3)
 print(result)
